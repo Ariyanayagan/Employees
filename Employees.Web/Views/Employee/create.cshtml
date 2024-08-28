@@ -1,0 +1,70 @@
+﻿@model EmployeeAddDto
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+
+<div class="container mt-4">
+    <h2>Add Employee</h2>
+    <form asp-action="Create" method="post">
+
+        <div class="row">
+            <!-- First Name -->
+            <div class="col-md-6 form-floating mb-3">
+                <input type="text" class="form-control" asp-for="FirstName" placeholder="Enter first name" />
+                <label asp-for="FirstName">First Name</label>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <!-- Last Name -->
+            <div class="col-md-6 form-floating mb-3">
+                <input type="text" class="form-control" asp-for="LastName" placeholder="Enter last name" />
+                <label asp-for="LastName">Last Name</label>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Phone Number -->
+            <div class="col-md-6 form-floating mb-3">
+                <input type="number" class="form-control" asp-for="PhoneNumber" placeholder="Enter phone number" />
+                <label asp-for="PhoneNumber">Phone Number</label>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-6 form-floating mb-3">
+                <input type="email" class="form-control" asp-for="Email" placeholder="Enter email" />
+                <label asp-for="Email">Email</label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Address -->
+            <div class="col-md-12 form-floating mb-3">
+                <textarea type="text" class="form-control" asp-for="Address" placeholder="Enter address" ></textarea>
+                <label asp-for="Address">Address</label>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <!-- Department Name -->
+            <div class="col-md-12 mb-3">
+                <label asp-for="DepartmentName">Department Name</label>
+                <select class="form-control" asp-for="DepartmentName" asp-items="@(new SelectList(ViewBag.Departments, "Value", "Text"))"></select>
+                <span asp-validation-for="DepartmentName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a asp-action="Index" class="btn btn-primary float-end">Close</a>
+    </form>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

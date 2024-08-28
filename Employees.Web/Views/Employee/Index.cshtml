@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Employees.Domain.Entities.Employee>
+
+@{
+    ViewData["Title"] = "Employee Details";
+
+}
+
+
+    <div class="d-flex justify-content-end mb-3 mt-3">
+        <a asp-action="Create" asp-controller="Employee" class="btn btn-outline-success">Create</a>
+    </div>
+    <table id="employee" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.EmployeeId </td>
+                    <td>@employee.FirstName @employee.LastName</td>
+                    <td>@employee.PhoneNumber </td>
+                    <td>@employee.Address </td>
+                    <td>@employee.Email </td>
+                    <td>@employee.Department?.DepartmentName </td>
+                    <td>
+                        <a asp-controller="Employee" asp-action="Update" asp-route-id="@employee.EmployeeId"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.EmployeeId"><i class="fa-solid fa-trash"></i></a>
+                        <a asp-controller="Employee" asp-action="GetEmployeeById" asp-route-id="@employee.EmployeeId"><i class="fa-solid fa-eye"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('#employee').DataTable();
+        });
+    </script>
+
+
+}
+
+

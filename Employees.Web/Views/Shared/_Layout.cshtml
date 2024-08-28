@@ -1,0 +1,80 @@
+﻿@inject SignInManager<IdentityUser> signIn;
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Employees.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Employees.Web.styles.css" asp-append-version="true" />
+@*     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.uikit.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css"/> *@
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.bootstrap5.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>    
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="employee" asp-action="Index">Employees.Web</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="employee" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="" asp-action="">Privacy</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-md-auto">
+                        @if (signIn.IsSignedIn(User))
+                        {
+                            <form method="post" asp-action="logout" asp-controller="account">
+
+                                <button type="submit" class="nav-link">
+                                    logout @User.Identity.Name
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="account" asp-action="register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="account" asp-action="login">login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container overflow-auto">
+        <main role="main" class="pb-3">
+            <partial name="_Notification" />
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit.min.js"></script>*@    
+    <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
+    @*<script src="https://cdn.datatables.net/2.1.4/js/dataTables.uikit.js"></script>*@
+    <script src="https://cdn.datatables.net/2.1.4/js/dataTables.bootstrap5.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@   
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

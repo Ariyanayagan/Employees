@@ -1,0 +1,35 @@
+﻿@model Employees.Domain.Entities.Employee
+
+
+
+<div class="card border-success mt-3">
+    <div class="card-header">Employee Details</div>
+    <div class="card-body">
+        <h4 class="card-title">@Model.FirstName @Model.LastName </h4>
+        <p class="card-subtitle text-muted">Employee ID: @Model.EmployeeId</p>
+        <hr class="my-3">
+        <p class="card-text">
+            <div class="mb-2">
+                <p class="mb-1"><strong>Address:</strong></p>
+                <p class="text-muted">@Model.Address</p>
+            </div>
+            <div class="mb-2">
+                <p class="mb-1"><strong>Phone Number:</strong></p>
+                <p class="text-muted">@Model.PhoneNumber</p>
+            </div>
+            <div class="mb-2">
+                <p class="mb-1"><strong>Email:</strong></p>
+                <p class="text-muted">@Model.Email</p>
+            </div>
+            <div class="mb-2">
+                <p class="mb-1"><strong>Department:</strong></p>
+                <p class="text-muted">@Model.Department?.DepartmentName</p>
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+                <a asp-controller="Employee" asp-action="Update" asp-route-id="@Model.EmployeeId" class="btn btn-outline-primary">Edit</a>
+                <a asp-controller="Employee" asp-action="Delete" asp-route-id="@Model.EmployeeId" class="btn btn-outline-danger">Delete</a>
+            </div>
+        </p>
+    </div>
+</div>
