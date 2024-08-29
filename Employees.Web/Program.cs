@@ -17,8 +17,8 @@ builder.Services.AddDbContext<AppDbcontext>(option => option.UseSqlServer(builde
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbcontext>();
 builder.Services.AddAuthentication().AddGoogle("Google", options =>
 {
-    options.ClientId = "698248397280-pgkpfibdih2j7d8ru1srjp9uc9o3dd2j.apps.googleusercontent.com";
-    options.ClientSecret = "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";
+    options.ClientId = "Your Client Id";
+    options.ClientSecret = "Your Client Secret";
 
 });
 
