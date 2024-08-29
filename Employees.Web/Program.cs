@@ -15,6 +15,13 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbcontext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("defaultConection")));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbcontext>();
+builder.Services.AddAuthentication().AddGoogle("Google", options =>
+{
+    options.ClientId = "698248397280-pgkpfibdih2j7d8ru1srjp9uc9o3dd2j.apps.googleusercontent.com";
+    options.ClientSecret = "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";
+
+});
+
 
 builder.Services.AddMediatR(x => x.RegisterServicesFromAssemblies(typeof(GetAllEmployeesQuery).Assembly));
 builder.Services.AddAutoMapper((typeof(MappingProfiles).Assembly));

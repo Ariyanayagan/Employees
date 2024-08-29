@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Web", "Employees.Web\Employees.Web.csproj", "{235A3B3D-3737-4303-BC2C-CF88B9A6121D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.Web", "Employees.Web\Employees.Web.csproj", "{235A3B3D-3737-4303-BC2C-CF88B9A6121D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Domain", "Employees.Domain\Employees.Domain.csproj", "{851815CA-C8CA-432F-AC2D-FD19A8D3EA89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.Domain", "Employees.Domain\Employees.Domain.csproj", "{851815CA-C8CA-432F-AC2D-FD19A8D3EA89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Application", "Employees.Application\Employees.Application.csproj", "{24FA89AD-5AF7-4772-B9D6-17B41B91DFAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.Application", "Employees.Application\Employees.Application.csproj", "{24FA89AD-5AF7-4772-B9D6-17B41B91DFAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Infrastructure", "Employees.Infrastructure\Employees.Infrastructure.csproj", "{695B6C48-4040-4AED-A5C3-FA8072630343}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.Infrastructure", "Employees.Infrastructure\Employees.Infrastructure.csproj", "{695B6C48-4040-4AED-A5C3-FA8072630343}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

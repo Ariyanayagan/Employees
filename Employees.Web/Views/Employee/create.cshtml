@@ -56,7 +56,7 @@
             <!-- Department Name -->
             <div class="col-md-12 mb-3">
                 <label asp-for="DepartmentName">Department Name</label>
-                <select class="form-control" asp-for="DepartmentName" asp-items="@(new SelectList(ViewBag.Departments, "Value", "Text"))"></select>
+                <select class="form-select" asp-for="DepartmentName" asp-items="@(new SelectList(ViewBag.Departments, "Value", "Text"))"></select>
                 <span asp-validation-for="DepartmentName" class="text-danger"></span>
             </div>
         </div>

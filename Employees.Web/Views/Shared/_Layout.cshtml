@@ -32,9 +32,14 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="employee" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="" asp-action="">Privacy</a>
-                        </li>
+                        @if (signIn.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="" asp-action="">Management Control</a>
+                            </li>
+                            
+                        }
+                        
                     </ul>
                     <ul class="navbar-nav ms-md-auto">
                         @if (signIn.IsSignedIn(User))
@@ -60,7 +65,7 @@
             </div>
         </nav>
     </header>
-    <div class="container overflow-auto">
+    <div class="container">
         <main role="main" class="pb-3">
             <partial name="_Notification" />
             @RenderBody()

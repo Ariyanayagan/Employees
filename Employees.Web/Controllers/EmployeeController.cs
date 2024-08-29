@@ -113,7 +113,7 @@ namespace Employees.Web.Controllers
             return View(employeeUpdateDto);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _sender.Send(new DeleteEmployeeCommand(id));

@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Employees.Domain.Entities.Employee>
 
+@inject SignInManager<IdentityUser> signIn;
 @{
     ViewData["Title"] = "Employee Details";
 
@@ -9,8 +10,8 @@
     <div class="d-flex justify-content-end mb-3 mt-3">
         <a asp-action="Create" asp-controller="Employee" class="btn btn-outline-success">Create</a>
     </div>
-    <table id="employee" class="table table-striped" style="width:100%">
-        <thead>
+    <table id="employee" class="table table-striped" >
+        <thead class="flex-lg-nowrap">
             <tr>
                 <th>Employee ID</th>
                 <th>Name</th>
@@ -24,7 +25,7 @@
         <tbody>
             @foreach (var employee in Model)
             {
-                <tr>
+                <tr class="table-dark">
                     <td>@employee.EmployeeId </td>
                     <td>@employee.FirstName @employee.LastName</td>
                     <td>@employee.PhoneNumber </td>
@@ -32,9 +33,15 @@
                     <td>@employee.Email </td>
                     <td>@employee.Department?.DepartmentName </td>
                     <td>
-                        <a asp-controller="Employee" asp-action="Update" asp-route-id="@employee.EmployeeId"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.EmployeeId"><i class="fa-solid fa-trash"></i></a>
-                        <a asp-controller="Employee" asp-action="GetEmployeeById" asp-route-id="@employee.EmployeeId"><i class="fa-solid fa-eye"></i></a>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-success btn-sm" asp-controller="Employee" asp-action="GetEmployeeById" asp-route-id="@employee.EmployeeId"><i class="fa-solid fa-eye"></i></a>
+                        <a class="btn btn-primary btn-sm" asp-controller="Employee" asp-action="Update" asp-route-id="@employee.EmployeeId"><i class="fa-solid fa-pen-to-square"></i></a>
+                        @if (signIn.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-danger btn-sm" asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.EmployeeId"><i class="fa-solid fa-trash"></i></a>
+                        }
+
+                    </div>
                     </td>
                 </tr>
             }
