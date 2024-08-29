@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+        <h1 class="display-4 text-danger">Access Denied</h1>
+        <p class="lead">You do not have permission to view this page.</p>
+        <hr class="my-4">
+        <p class="text-muted">Please contact your administrator if you believe this is an error.</p>
+        <a href="@Url.Action("Index", "Employee")" class="btn btn-primary btn-lg mt-3">Return to Home</a>
+    </div>
+</div>
+
+<style>
+    .vh-100 {
+        min-height: 100vh;
+    }
+
+    .text-danger {
+        color: #e3342f;
+    }
+
+    .btn-primary {
+        background-color: #3490dc;
+        border-color: #3490dc;
+    }
+
+        .btn-primary:hover {
+            background-color: #2779bd;
+            border-color: #2779bd;
+        }
+</style>
+
+

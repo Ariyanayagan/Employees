@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Email Confirmation";
+}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+        <h1 class="display-4 text-success">Thank You!</h1>
+        <p class="lead">@ViewBag.ErrorMessage</p>
+        <hr class="my-4">
+        <p class="text-muted">@ViewBag.ErrorMessage</p>
+        <a href="@Url.Action("Index", "Employee")" class="btn btn-primary btn-lg mt-3">Go to Home</a>
+    </div>
+</div>
+
+<style>
+    .vh-100 {
+        min-height: 100vh;
+    }
+
+    .text-success {
+        color: #38c172;
+    }
+
+    .btn-primary {
+        background-color: #3490dc;
+        border-color: #3490dc;
+    }
+
+        .btn-primary:hover {
+            background-color: #2779bd;
+            border-color: #2779bd;
+        }
+</style>

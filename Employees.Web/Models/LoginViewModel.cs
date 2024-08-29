@@ -16,8 +16,8 @@ namespace Employees.Web.Models
         [Display(Name = "Remember Me ?")]
         public bool rememberMe { get; set; }
 
-        public string returnUrl { get; set; }
+        public string returnUrl { get; set; } = string.Empty;
 
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }
+        public IList<AuthenticationScheme> ExternalLogins { get; set; } = new List<AuthenticationScheme>();
     }
 }

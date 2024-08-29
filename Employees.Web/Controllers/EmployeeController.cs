@@ -25,6 +25,7 @@ namespace Employees.Web.Controllers
             return View(employees);
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetEmployeeById(int id)
         {
@@ -55,7 +56,7 @@ namespace Employees.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
             var departments = await _sender.Send(new GetDepartmentQuery());
@@ -100,7 +101,7 @@ namespace Employees.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(EmployeeUpdateDto employeeUpdateDto)
         {
             if (ModelState.IsValid)

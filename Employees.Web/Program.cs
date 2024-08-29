@@ -14,11 +14,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbcontext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("defaultConection")));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbcontext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(o =>
+{
+    o.SignIn.RequireConfirmedEmail = true;
+}).AddEntityFrameworkStores<AppDbcontext>().AddDefaultTokenProviders();
+
 builder.Services.AddAuthentication().AddGoogle("Google", options =>
 {
-    options.ClientId = "Your Client Id";
-    options.ClientSecret = "Your Client Secret";
+    options.ClientId = builder.Configuration["Authentication:Google:ClientId"] ?? "";
+    options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"] ?? "";
 
 });
 
