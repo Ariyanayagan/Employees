@@ -51,11 +51,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) f
 
 - **Features**: Highlight key aspects of your project.
 - **Project Structure**: Provides a table to describe each layer in your Clean Architecture.
-- **Setup and Installation**: Detailed instructions on how to get started.
-- **Dependencies**: A table listing the key tools and libraries used.
-- **Testing**: Instructions on running tests.
-- **Build and Deployment**: Guidelines for building and deploying the project.
 - **Contributing**: Encourages collaboration.
+- **Dependencies**: List out all Dependencies.
 - **License**: Mentions the license.
 
 This `README.md` should give users a clear understanding of your project and how to get started.
