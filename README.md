@@ -54,6 +54,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.txt) f
 - **Contributing**: Encourages collaboration.
 - **Dependencies**: List out all Dependencies.
 - **License**: Mentions the license.
-
-This `README.md` should give users a clear understanding of your project and how to get started.
-
